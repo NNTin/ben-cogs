@@ -3,9 +3,9 @@ name: "Check Cogs"
 on:
   pull_request:
 
-# run for all cogs in ben-cogs repo, so commented out
-# env:
-#   COG_PATHS: "ampremover,bell,bible,currency,dank,earthquake,emojilink,enumbers,example,facebookdownloader,imgen,invoice,loan,scp,seasons,servertools,skysearch,spamatron,talknotifier,xkcd"  # comma-separated list of cog folder names
+# this can be commented but doing so will not display the result in discord, test-red-discordbot-downloader does support auto-discovery of cogs in the repo
+env:
+  COG_PATHS: "ampremover,bell,bible,currency,dank,earthquake,emojilink,enumbers,example,facebookdownloader,imgen,invoice,loan,scp,seasons,servertools,skysearch,spamatron,talknotifier,xkcd"  # comma-separated list of cog folder names
 
 jobs:
   test-cogs:
@@ -23,7 +23,7 @@ jobs:
         uses: nntin/d-flows/actions/test-red-discordbot-downloader@v1
         with:
           token: ${{ secrets.DISCORD_BOT_TOKEN }}
-          # cog_paths: ${{ env.COG_PATHS }}
+          cog_paths: ${{ env.COG_PATHS }}
           repo_url: https://github.com/${{ github.repository }}
           repo_branch: ${{ github.head_ref || github.ref_name }}
 
