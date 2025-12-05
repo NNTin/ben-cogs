@@ -11,8 +11,6 @@ jobs:
   test-cogs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -26,6 +24,8 @@ jobs:
         with:
           token: ${{ secrets.DISCORD_BOT_TOKEN }}
           # cog_paths: ${{ env.COG_PATHS }}
+          repo_url: https://github.com/${{ github.repository }}
+          repo_branch: ${{ github.head_ref || github.ref_name }}
 
   ##################################################################
   ####     Build validation results for Discord notification    ####
