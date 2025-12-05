@@ -25,7 +25,7 @@ jobs:
         uses: nntin/d-flows/actions/test-red-discordbot-downloader@v1
         with:
           token: ${{ secrets.DISCORD_BOT_TOKEN }}
-          cog_paths: ${{ env.COG_PATHS }}
+          # cog_paths: ${{ env.COG_PATHS }}
 
   ##################################################################
   ####     Build validation results for Discord notification    ####
